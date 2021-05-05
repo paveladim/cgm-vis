@@ -1,0 +1,3 @@
+D:\materials\projects\GGM-VIS\GGM-VIS\Debug\GGM-VIS.vcxprojAssemblyReference.cache
+D:\materials\projects\GGM-VIS\GGM-VIS\Debug\GGMVIS.MyForm.resources
+D:\materials\projects\GGM-VIS\GGM-VIS\Debug\GGM-VIS.vcxproj.GenerateResource.cache
