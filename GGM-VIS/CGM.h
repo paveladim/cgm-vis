@@ -61,6 +61,8 @@ public:
 	solution returnV() { return v; }
 	solution returnU() { return u; }
 	solution returnDif() { return difference; }
+	std::vector<double> returnGridX() { return x; }
+	std::vector<double> returnGridY() { return y; }
 };
 
 #endif

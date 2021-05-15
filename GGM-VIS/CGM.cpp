@@ -73,8 +73,14 @@ CGM::CGM(const uint& _n, const uint& _m, const uint& _inter, const uint& _iter, 
 
 	for (uint j = 0; j < m + 1; ++j)
 		for (uint i = 0; i < n + 1; ++i) {
-			u[j][i] = sol(x[i], y[j]);
-			v[j][i] = u[j][i];
+			if ((i > n1) && (i < n2) && (j > m1) && (j < m2)) {
+				u[j][i] = 0;
+				v[j][i] = u[j][i];
+			}
+			else {
+				u[j][i] = sol(x[i], y[j]);
+				v[j][i] = u[j][i];
+			}
 		}
 
 	for (uint j = 1; j < m1; ++j)

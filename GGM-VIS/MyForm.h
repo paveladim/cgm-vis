@@ -67,6 +67,11 @@ namespace GGMVIS {
 	private: System::Windows::Forms::Label^ labelForY;
 	private: System::Windows::Forms::Label^ labelForR0;
 	private: System::Windows::Forms::Label^ labelForRN;
+	private: System::Windows::Forms::DataGridView^ tableForV;
+	private: System::Windows::Forms::DataGridView^ tableForDiff;
+	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::Label^ label18;
+	private: System::Windows::Forms::Label^ label19;
 
 	protected:
 
@@ -115,8 +120,15 @@ namespace GGMVIS {
 			this->labelForY = (gcnew System::Windows::Forms::Label());
 			this->labelForR0 = (gcnew System::Windows::Forms::Label());
 			this->labelForRN = (gcnew System::Windows::Forms::Label());
+			this->tableForV = (gcnew System::Windows::Forms::DataGridView());
+			this->tableForDiff = (gcnew System::Windows::Forms::DataGridView());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->label19 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tableForU))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tableForV))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tableForDiff))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// chooseInter
@@ -227,7 +239,7 @@ namespace GGMVIS {
 			this->tableForU->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->tableForU->Location = System::Drawing::Point(12, 272);
 			this->tableForU->Name = L"tableForU";
-			this->tableForU->Size = System::Drawing::Size(492, 436);
+			this->tableForU->Size = System::Drawing::Size(492, 479);
 			this->tableForU->TabIndex = 12;
 			this->tableForU->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick);
 			// 
@@ -395,11 +407,59 @@ namespace GGMVIS {
 			this->labelForRN->TabIndex = 30;
 			this->labelForRN->Text = L"0.0";
 			// 
+			// tableForV
+			// 
+			this->tableForV->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->tableForV->Location = System::Drawing::Point(510, 272);
+			this->tableForV->Name = L"tableForV";
+			this->tableForV->Size = System::Drawing::Size(487, 479);
+			this->tableForV->TabIndex = 31;
+			// 
+			// tableForDiff
+			// 
+			this->tableForDiff->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->tableForDiff->Location = System::Drawing::Point(1003, 272);
+			this->tableForDiff->Name = L"tableForDiff";
+			this->tableForDiff->Size = System::Drawing::Size(455, 479);
+			this->tableForDiff->TabIndex = 32;
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(208, 256);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(103, 13);
+			this->label17->TabIndex = 33;
+			this->label17->Text = L"Истинное решение";
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(705, 256);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(110, 13);
+			this->label18->TabIndex = 34;
+			this->label18->Text = L"Численное решение";
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Location = System::Drawing::Point(1130, 256);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(222, 13);
+			this->label19->TabIndex = 35;
+			this->label19->Text = L"Разница истинного и численного решений";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1453, 763);
+			this->ClientSize = System::Drawing::Size(1470, 763);
+			this->Controls->Add(this->label19);
+			this->Controls->Add(this->label18);
+			this->Controls->Add(this->label17);
+			this->Controls->Add(this->tableForDiff);
+			this->Controls->Add(this->tableForV);
 			this->Controls->Add(this->labelForRN);
 			this->Controls->Add(this->labelForR0);
 			this->Controls->Add(this->labelForY);
@@ -431,11 +491,14 @@ namespace GGMVIS {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->chooseInter);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"ЛР Ступень 3. Петров Павел, гр. 381803-1, команда 1.";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tableForU))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tableForV))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->tableForDiff))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -448,6 +511,14 @@ namespace GGMVIS {
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
 private: System::Void buildSolution_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	tableForU->Rows->Clear();
+	tableForV->Rows->Clear();
+	tableForDiff->Rows->Clear();
+
+	tableForU->Columns->Clear();
+	tableForV->Columns->Clear();
+	tableForDiff->Columns->Clear();
 
 	if (textBoxForN->Text->Length == 0)
 	{
@@ -492,6 +563,46 @@ private: System::Void buildSolution_Click(System::Object^ sender, System::EventA
 
 	CGM solveTask(n, m, inter, max_iter, des_eps);
 	solveTask.solver();
+
+	solution taskU = solveTask.returnU();
+	solution taskV = solveTask.returnV();
+	solution taskDiff = solveTask.returnDif();
+
+	tableForU->Columns->Add("dest", "y/x");
+	tableForV->Columns->Add("dest", "y/x");
+	tableForDiff->Columns->Add("dest", "y/x");
+
+	std::vector<double> gridX = solveTask.returnGridX();
+	std::vector<double> gridY = solveTask.returnGridY();
+
+	for (uint i = 1; i < n + 2; ++i)
+	{
+		tableForU->Columns->Add("gr" + Convert::ToString(i), Convert::ToString(gridX[i - 1]));
+		tableForV->Columns->Add("gr" + Convert::ToString(i), Convert::ToString(gridX[i - 1]));
+		tableForDiff->Columns->Add("gr" + Convert::ToString(i), Convert::ToString(gridX[i - 1]));
+	}
+
+	for (uint i = 0; i < m; ++i) {
+		tableForU->Rows->Add();
+		tableForU->Rows[i]->Cells[0]->Value = gridY[i];
+
+		tableForV->Rows->Add();
+		tableForV->Rows[i]->Cells[0]->Value = gridY[i];
+
+		tableForDiff->Rows->Add();
+		tableForDiff->Rows[i]->Cells[0]->Value = gridY[i];
+	}
+
+	tableForU->Rows[m]->Cells[0]->Value = gridY[m];
+	tableForV->Rows[m]->Cells[0]->Value = gridY[m];
+	tableForDiff->Rows[m]->Cells[0]->Value = gridY[m];
+
+	for (uint j = 0; j < m + 1; ++j)
+		for (uint i = 0; i < n + 1; ++i) {
+			tableForU->Rows[j]->Cells[i + 1]->Value = taskU[j][i];
+			tableForV->Rows[j]->Cells[i + 1]->Value = taskV[j][i];
+			tableForDiff->Rows[j]->Cells[i + 1]->Value = taskDiff[j][i];
+		}
 
 	labelForIter->Text = Convert::ToString(solveTask.giveIter());
 	labelForEps->Text = Convert::ToString(solveTask.giveEps());
